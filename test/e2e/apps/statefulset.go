@@ -49,7 +49,8 @@ const (
 
 // GCE Quota requirements: 3 pds, one per stateful pod manifest declared above.
 // GCE Api requirements: nodes and master need storage r/w permissions.
-var _ = SIGDescribe("StatefulSet", func() {
+// Mark all StatefulSet tests as Flaky until https://github.com/kubernetes/kubernetes/issues/48031 resolved
+var _ = SIGDescribe("StatefulSet [Flaky]", func() {
 	f := framework.NewDefaultFramework("statefulset")
 	var ns string
 	var c clientset.Interface
