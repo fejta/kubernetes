@@ -217,7 +217,8 @@ func gatherMetrics(f *framework.Framework) {
 	}
 }
 
-var _ = SIGDescribe("Garbage collector", func() {
+// Mark all GC tests as flaky until https://github.com/kubernetes/kubernetes/issues/34120 resolved.
+var _ = SIGDescribe("Garbage collector [Flaky]", func() {
 	f := framework.NewDefaultFramework("gc")
 	It("should delete pods created by rc when not orphaning", func() {
 		clientSet := f.ClientSet
